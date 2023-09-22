@@ -1,20 +1,32 @@
-#include <Servo.h> 
-
-Servo servo; // servo object representing the MG 996R servo
-
-void setup() {
-  servo.attach(3); // servo is wired to Arduino on digital pin 3
+#include <Servo.h>
+Servo servo;
+int option;
+int ENA = 6;
+int IN1 = 5;
+int IN2 = 4;
+void setup(){
+  Serial.begin(9600);
+  pinMode(led, OUTPUT); 
+  pinMode(ENA, OUTPUT);
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  servo.attach(3);
 }
 
-void loop() {
-  servo.write(0); // move MG996R's shaft to angle 0°
-  delay(1000); // wait for one second
-  servo.write(45); // move MG996R's shaft to angle 45°
-  delay(1000); // wait for one second 
-  servo.write(90); // move MG996R's shaft to angle 90°
-  delay(1000); // wait for one second
-  servo.write(135); // move MG996R's shaft to angle 135°
-  delay(1000); // wait for one second
-  servo.write(180); // move MG996R's shaft to angle 180°
-  delay(1000); // wait for one second
+void loop(){
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  analogWrite(ENA, 255);
+  servo.write(90);
+  if (Serial.available()>0){
+    option=Serial.read();
+    if(option=='a') {
+      servo.write(30);
+      delay(500);
+    }
+    if(option=='b') {
+      servo.write(150);
+      delay(500);
+    }
+  }
 }
