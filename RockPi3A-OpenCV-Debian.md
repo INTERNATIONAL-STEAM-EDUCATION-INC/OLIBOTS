@@ -30,7 +30,7 @@
 # Paso 04 - Instalacion de paquetes recomendados
 # Debemos iniciar sesion en la interfaz grafica con el usuario y contrasena " rock ", y luego en la terminal ejecutar el comando.
     
-    `sudo apt-get install -y build-essential thonny gcc git wget mlocate curl cheese dpkg cmake pkg-config ccache python2 python3 python3-pip python3-dev libpng-dev libjpeg-dev libeigen3-dev ffmpeg libavcodec-dev libavformat-dev libswscale-dev libavresample-dev libgstreamer1.0-dev libgstreamermm-1.0-dev libgtk-3-dev libgtkglext1-dev libgtkglextmm-x11-1.2-dev apt-utils python3-setuptools python3-opencv python3-numpy virtualenv libxslt1-dev zlib1g zlib1g-dev libglib2.0-0 libsm6 libgl1-mesa-glx libprotobuf-dev`
+    `sudo apt-get install -y build-essential thonny gcc git wget mlocate curl cheese dpkg cmake pkg-config ccache python2 python3 python3-pip python3-dev libpng-dev libjpeg-dev libeigen3-dev ffmpeg libavcodec-dev libavformat-dev libswscale-dev libavresample-dev libgstreamer1.0-dev libgstreamermm-1.0-dev libgtk-3-dev libgtkglext1-dev libgtkglextmm-x11-1.2-dev apt-utils python3-setuptools python3-opencv python3-numpy virtualenv libxslt1-dev zlib1g zlib1g-dev libglib2.0-0 libsm6 libgl1-mesa-glx libprotobuf-dev libmraa-dev libmraa2 libmraa2-dbgsym mraa-examples mraa-examples mraa-tools mraa-tools-dbgsym python3-mraa python-mraa-dbgsym`
 
 # Luego de instalados los paquetes vamos a actualizar el manejador " pip " a la version mas reciente
     
@@ -109,9 +109,6 @@
 
 # Paso 09 - Instalacion y prueba de libmraa
 
-    `sudo apt-get install -y libmraa-dev libmraa-java libmraa-java-dbgsym libmraa2 libmraa2-dbgsym mraa-examples mraa-tools mraa-tools-dbgsym python3-mraa python3-mraa-dbgsym`
-
-#Copia de ejemplos de codigos
 #Copia de ejemplos de codigos
     
     `sudo cp -av /usr/local/share/mraa/examples/ /home/rock/mraa-examples`
