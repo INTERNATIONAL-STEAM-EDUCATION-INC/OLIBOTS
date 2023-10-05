@@ -109,7 +109,7 @@
 
 # Paso 09 - Instalacion y prueba de libmraa
 
-    `sudo apt-get install -y libmraa-dev libmraa2 libmraa2-dbgsym mraa-examples mraa-examples mraa-tools mraa-tools-dbgsym python3-mraa python-mraa-dbgsym`
+    `sudo apt-get install -y libmraa-dev libmraa-java libmraa-java-dbgsym libmraa2 libmraa2-dbgsym mraa-examples mraa-tools mraa-tools-dbgsym python3-mraa python3-mraa-dbgsym`
 
 #Copia de ejemplos de codigos
 #Copia de ejemplos de codigos
