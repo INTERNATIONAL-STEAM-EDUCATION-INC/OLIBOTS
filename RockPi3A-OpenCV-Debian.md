@@ -18,59 +18,59 @@
 
 # Paso 02 - actualizar la librerias
 
-    `sudo apt-get update -y && sudo apt-get upgrade -y`
+    sudo apt-get update -y && sudo apt-get upgrade -y
 #--------------------------------------------------------------------------------------------------------------------------------------
 
 # Paso 03 - Instalacion de Interfaz Grafica - OMITIR
 
-    `#sudo apt-get install -y xfce4 xubuntu-desktop`
+    sudo apt-get install -y xfce4 xubuntu-desktop
 #--------------------------------------------------------------------------------------------------------------------------------------
 
 
 # Paso 04 - Instalacion de paquetes recomendados
 # Debemos iniciar sesion en la interfaz grafica con el usuario y contrasena " rock ", y luego en la terminal ejecutar el comando.
     
-    `sudo apt-get install -y build-essential thonny gcc git wget mlocate curl cheese dpkg cmake pkg-config ccache python2 python3 python3-pip python3-dev libpng-dev libjpeg-dev libeigen3-dev ffmpeg libavcodec-dev libavformat-dev libswscale-dev libavresample-dev libgstreamer1.0-dev libgstreamermm-1.0-dev libgtk-3-dev libgtkglext1-dev libgtkglextmm-x11-1.2-dev apt-utils python3-setuptools python3-opencv python3-numpy virtualenv libxslt1-dev zlib1g zlib1g-dev libglib2.0-0 libsm6 libgl1-mesa-glx libprotobuf-dev libmraa-dev libmraa2 libmraa2-dbgsym mraa-examples mraa-examples mraa-tools mraa-tools-dbgsym python3-mraa python-mraa-dbgsym`
+    sudo apt-get install -y build-essential thonny gcc git wget mlocate curl cheese dpkg cmake pkg-config ccache python2 python3 python3-pip python3-dev libpng-dev libjpeg-dev libeigen3-dev ffmpeg libavcodec-dev libavformat-dev libswscale-dev libavresample-dev libgstreamer1.0-dev libgstreamermm-1.0-dev libgtk-3-dev libgtkglext1-dev libgtkglextmm-x11-1.2-dev apt-utils python3-setuptools python3-opencv python3-numpy virtualenv libxslt1-dev zlib1g zlib1g-dev libglib2.0-0 libsm6 libgl1-mesa-glx libprotobuf-dev libmraa-dev libmraa2 libmraa2-dbgsym mraa-examples mraa-examples mraa-tools mraa-tools-dbgsym python3-mraa python-mraa-dbgsym
 
 # Luego de instalados los paquetes vamos a actualizar el manejador " pip " a la version mas reciente
     
-    `pip3 install --upgrade pip`
+    pip3 install --upgrade pip
 
 # Una vez actualizado pip vamos a instalar la libreria " numpy "
 
-    `pip3 install numpy`
+    pip3 install numpy
 
 # -------------------------------------------------------------------------------------------------------------------------------------------
 
 # Paso 05 - aumentar la memoria swap a por el tamano de la memoria USB
 
-    `lsblk`   # esto nos dara la identificacion de la memoria usb algo como por ejemplo: /dev/sda
+    lsblk   # esto nos dara la identificacion de la memoria usb algo como por ejemplo: /dev/sda
     
-    `sudo blkid`   # esto nos dara la indentificacion unica de todos los volumenes de memoria
+    sudo blkid   # esto nos dara la indentificacion unica de todos los volumenes de memoria
 
     # se enlistara todos los volumenes de memoria, prestar atencion al conectado en /dev/sda debemos guardar el valor UUID de la memoria 
     # esta tendra una forma="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 
-    `sudo umount /dev/XXX` # aqui nos aseguramos que la memoria no este en uso, ejemplo que /dev/sda no este montada ni en uso
-    `sudo mkswap /dev/XXX` # aqui formateamos la memoria en configuracion SWAP
-    `sudo nano /etc/fstab` # editaremos el archivo fstab que nos permite especificar la memoria SWAP
+    sudo umount /dev/XXX # aqui nos aseguramos que la memoria no este en uso, ejemplo que /dev/sda no este montada ni en uso
+    sudo mkswap /dev/XXX # aqui formateamos la memoria en configuracion SWAP
+    sudo nano /etc/fstab # editaremos el archivo fstab que nos permite especificar la memoria SWAP
 
     # debemos agregar la linea  " UUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX none swap sw,pri=5 0 0  " donde remplazamos las X por el valor obtenido anteriormente.
 
-    `sudo swapon -a`  # activa la memoria SWAP ahora dentro de la memoria USB
+    sudo swapon -a  # activa la memoria SWAP ahora dentro de la memoria USB
 
-    `free -m`   # para comprobar que la memoria SWAP esta configurada y habilitada.
+    free -m   # para comprobar que la memoria SWAP esta configurada y habilitada.
 
 # ----------------------------------------------------------------------------------------------------------------------------------------
 
 # Paso 06 - descargar e instalar biblioteca OpenBLAS
 
-    `cd ~`
-    `get -O openblas.zip https://github.com/xianyi/OpenBLAS/releases/download/v0.3.23/OpenBLAS-0.3.23.zip`
-    `unzip openblas.zip`
-    `cd OpenBLAS-0.3.23`
-    `make all -j4`    # esperar un momento en que compila, esto utlizara los 4 cpu del rockpi
-    `sudo make install`  #esperar a que termine
+    cd ~
+    get -O openblas.zip https://github.com/xianyi/OpenBLAS/releases/download/v0.3.23/OpenBLAS-0.3.23.zip
+    unzip openblas.zip
+    cd OpenBLAS-0.3.23
+    make all -j4    # esperar un momento en que compila, esto utlizara los 4 cpu del rockpi
+    sudo make install  #esperar a que termine
 
 
 # ----------------------------------------------------------------------------------------------------------------------------------------
