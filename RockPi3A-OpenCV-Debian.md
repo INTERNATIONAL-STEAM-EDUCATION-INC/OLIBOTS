@@ -54,8 +54,8 @@
 
     cd ~
     wget https://downloads.arduino.cc/arduino-1.8.19-linuxaarch64.tar.xz
-    tar -xf https://downloads.arduino.cc/arduino-1.8.19-linuxaarch64.tar.xz
-    cd rduino-1.8.19-linuxaarch64
+    tar -xf arduino-1.8.19-linuxaarch64.tar.xz
+    cd arduino-1.8.19-linuxaarch64
     sudo sh install.sh
     sudo usermod -a -G dialout rock
 
