@@ -1,9 +1,11 @@
 #include <Servo.h>
 Servo servo;
-int option;
+String nom = "Arduino";
+String msg;
 int ENA = 6;
 int IN1 = 5;
 int IN2 = 4;
+int led = 13;
 void setup(){
   Serial.begin(9600);
   pinMode(led, OUTPUT); 
@@ -18,15 +20,16 @@ void loop(){
   digitalWrite(IN2, HIGH);
   analogWrite(ENA, 255);
   servo.write(90);
-  if (Serial.available()>0){
-    option=Serial.read();
-    if(option=='a') {
-      servo.write(30);
-      delay(500);
-    }
-    if(option=='b') {
-      servo.write(150);
-      delay(500);
-    }
+  readSerialPort();
+}
+
+void readSerialPort() {
+  msg = "";
+  if (Serial.available()) {
+      delay(10);
+      while (Serial.available() > 0) {
+          msg += (char)Serial.read();
+      }
+      Serial.flush();
   }
 }
