@@ -7,7 +7,7 @@ int IN1 = 5;
 int IN2 = 4;
 int led = 13;
 void setup(){
-  Serial.begin(9600);
+  Serial.begin(115200);
   pinMode(led, OUTPUT); 
   pinMode(ENA, OUTPUT);
   pinMode(IN1, OUTPUT);
@@ -21,6 +21,16 @@ void loop(){
   analogWrite(ENA, 255);
   servo.write(90);
   readSerialPort();
+  Serial.println(msg);
+  if (msg.equals("rojo")){
+    // instrucciones para rojo
+  }
+  if (msg.equals("verde")){
+    // instrucciones para verde
+  }
+  if (msg.equals("siga")){
+    // instrucciones para siga
+  }
 }
 
 void readSerialPort() {
