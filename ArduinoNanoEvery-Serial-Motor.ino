@@ -2,34 +2,58 @@
 Servo servo;
 String nom = "Arduino";
 String msg;
-int ENA = 6;
-int IN1 = 5;
-int IN2 = 4;
-int led = 13;
+int ENA = 9;
+int IN1 = 7;
+int IN2 = 6;
+int ledROJO = 13;
+int ledVERDE = 14;
+
 void setup(){
-  Serial.begin(115200);
-  pinMode(led, OUTPUT); 
+  Serial.begin(9600);
+  pinMode(ledROJO, OUTPUT);
+  pinMode(ledVERDE, OUTPUT);  
   pinMode(ENA, OUTPUT);
   pinMode(IN1, OUTPUT);
   pinMode(IN2, OUTPUT);
-  servo.attach(3);
+  servo.attach(5);
+  servo.write(90);
 }
 
 void loop(){
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, HIGH);
-  analogWrite(ENA, 255);
-  servo.write(90);
   readSerialPort();
   Serial.println(msg);
-  if (msg.equals("rojo")){
+  analogWrite(ENA, 130);
+  //servo.write(90);
+  while (msg.equals("rojo")){
     // instrucciones para rojo
+    digitalWrite(ledROJO, HIGH);
+    //digitalWrite(ENA, LOW);
+    analogWrite(ENA, 32);
+    servo.write(130);
+    //delay(50);
+    readSerialPort();
+    digitalWrite(ledROJO, LOW);
   }
-  if (msg.equals("verde")){
+  while (msg.equals("verde")){
     // instrucciones para verde
+    digitalWrite(ledVERDE, HIGH);
+    //digitalWrite(ENA, LOW);
+    analogWrite(ENA, 255);
+    servo.write(50);
+    //delay(50);
+    readSerialPort();
+    digitalWrite(ledVERDE, LOW);
   }
-  if (msg.equals("siga")){
+  while (msg.equals("siga")){
     // instrucciones para siga
+    digitalWrite(ledROJO, LOW);
+    digitalWrite(ledVERDE, LOW);
+    analogWrite(ENA, 255);
+    servo.write(90);
+    //delay(50);
+    readSerialPort();
   }
 }
 
