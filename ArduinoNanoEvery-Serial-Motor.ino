@@ -35,6 +35,8 @@ void loop(){
     //delay(50);
     readSerialPort();
     digitalWrite(ledROJO, LOW);
+    delay(200);
+
   }
   while (msg.equals("verde")){
     // instrucciones para verde
@@ -45,6 +47,7 @@ void loop(){
     //delay(50);
     readSerialPort();
     digitalWrite(ledVERDE, LOW);
+    delay(200);
   }
   while (msg.equals("siga")){
     // instrucciones para siga
